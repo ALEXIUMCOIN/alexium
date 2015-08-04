@@ -1,6 +1,6 @@
 [Protocol]
-exec=blackcoin-qt '%u'
-protocol=blackcoin
+exec=alexium-qt '%u'
+protocol=alexium
 input=none
 output=none
 helper=true

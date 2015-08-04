@@ -1,0 +1,12 @@
+[Desktop Entry]
+Encoding=UTF-8
+Name=Alexium
+Comment=Alexium P2P Cryptocurrency
+Comment[fr]=Alexium, monnaie virtuelle cryptographique pair à pair
+Comment[tr]=Alexium, eşten eşe kriptografik sanal para birimi
+Exec=/usr/bin/alexium-qt
+Terminal=false
+Type=Application
+Icon=/usr/share/pixmaps/bitcoin80.xpm
+MimeType=x-scheme-handler/alexium;
+Categories=Office;

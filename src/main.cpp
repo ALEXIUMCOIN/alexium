@@ -22,7 +22,7 @@ using namespace std;
 using namespace boost;
 
 #if defined(NDEBUG)
-# error "BlackCoin cannot be compiled without assertions."
+# error "Alexium cannot be compiled without assertions."
 #endif
 
 //
@@ -75,7 +75,7 @@ map<uint256, set<uint256> > mapOrphanTransactionsByPrev;
 // Constant stuff for coinbase transactions we create:
 CScript COINBASE_FLAGS;
 
-const string strMessageMagic = "BlackCoin Signed Message:\n";
+const string strMessageMagic = "Alexium Signed Message:\n";
 
 extern enum Checkpoints::CPMode CheckpointsMode;
 
@@ -2338,7 +2338,7 @@ bool CheckDiskSpace(uint64_t nAdditionalBytes)
 
 static filesystem::path BlockFilePath(unsigned int nFile)
 {
-    string strBlockFn = strprintf("blk%04u.dat", nFile);
+    string strBlockFn = strprintf("AUM%04u.dat", nFile);
     return GetDataDir() / strBlockFn;
 }
 
@@ -2522,15 +2522,15 @@ bool LoadExternalBlockFile(FILE* fileIn)
     int nLoaded = 0;
     {
         try {
-            CAutoFile blkdat(fileIn, SER_DISK, CLIENT_VERSION);
+            CAutoFile AUMdat(fileIn, SER_DISK, CLIENT_VERSION);
             unsigned int nPos = 0;
-            while (nPos != (unsigned int)-1 && blkdat.good())
+            while (nPos != (unsigned int)-1 && AUMdat.good())
             {
                 boost::this_thread::interruption_point();
                 unsigned char pchData[65536];
                 do {
-                    fseek(blkdat, nPos, SEEK_SET);
-                    int nRead = fread(pchData, 1, sizeof(pchData), blkdat);
+                    fseek(AUMdat, nPos, SEEK_SET);
+                    int nRead = fread(pchData, 1, sizeof(pchData), AUMdat);
                     if (nRead <= 8)
                     {
                         nPos = (unsigned int)-1;
@@ -2552,13 +2552,13 @@ bool LoadExternalBlockFile(FILE* fileIn)
                 } while(true);
                 if (nPos == (unsigned int)-1)
                     break;
-                fseek(blkdat, nPos, SEEK_SET);
+                fseek(AUMdat, nPos, SEEK_SET);
                 unsigned int nSize;
-                blkdat >> nSize;
+                AUMdat >> nSize;
                 if (nSize > 0 && nSize <= MAX_BLOCK_SIZE)
                 {
                     CBlock block;
-                    blkdat >> block;
+                    AUMdat >> block;
                     LOCK(cs_main);
                     if (ProcessBlock(NULL,&block))
                     {
@@ -2592,7 +2592,7 @@ struct CImportingNow
 
 void ThreadImport(std::vector<boost::filesystem::path> vImportFiles)
 {
-    RenameThread("blackcoin-loadblk");
+    RenameThread("alexium-loadAUM");
 
     CImportingNow imp;
 

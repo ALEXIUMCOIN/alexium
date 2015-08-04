@@ -1,0 +1,2 @@
+debian/bin/alexiumd usr/bin
+src/alexiumd usr/lib/alexium
