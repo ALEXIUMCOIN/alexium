@@ -88,7 +88,7 @@ public:
         vSeeds.push_back(CDNSSeedData("rat4.alexium.co", "seed.alexium.co"));
         vSeeds.push_back(CDNSSeedData("6.syllabear.us.to", "bcseed.syllabear.us.to"));
 
-        base58Prefixes[PUBKEY_ADDRESS] = list_of(25);
+        base58Prefixes[PUBKEY_ADDRESS] = list_of(23);
         base58Prefixes[SCRIPT_ADDRESS] = list_of(85);
         base58Prefixes[SECRET_KEY] =     list_of(153);
         base58Prefixes[EXT_PUBLIC_KEY] = list_of(0x04)(0x88)(0xB2)(0x1E);
