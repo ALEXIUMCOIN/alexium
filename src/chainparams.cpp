@@ -48,7 +48,7 @@ public:
         // The message start string is designed to be unlikely to occur in normal data.
         // The characters are rarely used upper ASCII, not valid as UTF-8, and produce
         // a large 4-byte int at any alignment.
-        pchMessageStart[0] = 0x70;
+        pchMessageStart[0] = 0x7f;
         pchMessageStart[1] = 0x35;
         pchMessageStart[2] = 0x22;
         pchMessageStart[3] = 0x05;
@@ -122,7 +122,7 @@ public:
         // The message start string is designed to be unlikely to occur in normal data.
         // The characters are rarely used upper ASCII, not valid as UTF-8, and produce
         // a large 4-byte int at any alignment.
-        pchMessageStart[0] = 0xcd;
+        pchMessageStart[0] = 0xfd;
         pchMessageStart[1] = 0xf2;
         pchMessageStart[2] = 0xc0;
         pchMessageStart[3] = 0xef;
@@ -162,7 +162,7 @@ static CTestNetParams testNetParams;
 class CRegTestParams : public CTestNetParams {
 public:
     CRegTestParams() {
-        pchMessageStart[0] = 0xfa;
+        pchMessageStart[0] = 0xff;
         pchMessageStart[1] = 0xbf;
         pchMessageStart[2] = 0xb5;
         pchMessageStart[3] = 0xda;
