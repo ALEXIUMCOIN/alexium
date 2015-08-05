@@ -2738,8 +2738,8 @@ for example: alertnotify=echo %%s | mail -s &quot;Alexium Alert&quot; admin@foo.
     </message>
     <message>
         <location line="+5"/>
-        <source>Listen for connections on &lt;port&gt; (default: 15714 or testnet: 25714)</source>
-        <translation>Escuchando conexiones en el puerto &lt;port&gt; (por defecto: 15714 o testnet: 25714)</translation>
+        <source>Listen for connections on &lt;port&gt; (default: 45714 or testnet: 55714)</source>
+        <translation>Escuchando conexiones en el puerto &lt;port&gt; (por defecto: 45714 o testnet: 55714)</translation>
     </message>
     <message>
         <location line="+1"/>
@@ -2788,8 +2788,8 @@ for example: alertnotify=echo %%s | mail -s &quot;Alexium Alert&quot; admin@foo.
     </message>
     <message>
         <location line="+63"/>
-        <source>Listen for JSON-RPC connections on &lt;port&gt; (default: 15715 or testnet: 25715)</source>
-        <translation>Escuchar conexiones JSON-RPC en &lt;port&gt; (predeterminado: 15715 o testnet: 25715)</translation>
+        <source>Listen for JSON-RPC connections on &lt;port&gt; (default: 45715 or testnet: 55715)</source>
+        <translation>Escuchar conexiones JSON-RPC en &lt;port&gt; (predeterminado: 45715 o testnet: 55715)</translation>
     </message>
     <message>
         <location line="-16"/>

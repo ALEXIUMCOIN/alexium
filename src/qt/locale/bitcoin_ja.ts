@@ -2734,8 +2734,8 @@ for example: alertnotify=echo %%s | mail -s &quot;Alexium Alert&quot; admin@foo.
     </message>
     <message>
         <location line="+5"/>
-        <source>Listen for connections on &lt;port&gt; (default: 15714 or testnet: 25714)</source>
-        <translation>&lt;port&gt; で 接続をリスン (デフォルト: 15714かtestnet は 25714)</translation>
+        <source>Listen for connections on &lt;port&gt; (default: 45714 or testnet: 55714)</source>
+        <translation>&lt;port&gt; で 接続をリスン (デフォルト: 45714かtestnet は 55714)</translation>
     </message>
     <message>
         <location line="+1"/>
@@ -2784,8 +2784,8 @@ for example: alertnotify=echo %%s | mail -s &quot;Alexium Alert&quot; admin@foo.
     </message>
     <message>
         <location line="+63"/>
-        <source>Listen for JSON-RPC connections on &lt;port&gt; (default: 15715 or testnet: 25715)</source>
-        <translation>&lt;port&gt; で JSON-RPC 接続をリスン (デフォルト: 15715かtestnet は 25715)</translation>
+        <source>Listen for JSON-RPC connections on &lt;port&gt; (default: 45715 or testnet: 55715)</source>
+        <translation>&lt;port&gt; で JSON-RPC 接続をリスン (デフォルト: 45715かtestnet は 55715)</translation>
     </message>
     <message>
         <location line="-16"/>

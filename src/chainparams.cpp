@@ -53,8 +53,8 @@ public:
         pchMessageStart[2] = 0x22;
         pchMessageStart[3] = 0x05;
         vAlertPubKey = ParseHex("04e4859569daee357967024a5d0374c10c9921ff3eaa26900118c22778a63694e6db5087be0349c1f84bc4dfcdf624f3fd2b04379c331c1a9541b0bc0e02eaf417");
-        nDefaultPort = 15714;
-        nRPCPort = 15715;
+        nDefaultPort = 45714;
+        nRPCPort = 45715;
         bnProofOfWorkLimit = CBigNum(~uint256(0) >> 20);
 
         // Build the genesis block. Note that the output of the genesis coinbase cannot
@@ -128,8 +128,8 @@ public:
         pchMessageStart[3] = 0xef;
         bnProofOfWorkLimit = CBigNum(~uint256(0) >> 16);
         vAlertPubKey = ParseHex("045aeb971044b4a8915e0839317083e666701978b679034f453539a6be492d7949fe056aa5dd663180bec6eae1c569e6c14ee519bb6224ebd673b819742113a387");
-        nDefaultPort = 25714;
-        nRPCPort = 25715;
+        nDefaultPort = 55714;
+        nRPCPort = 55715;
         strDataDir = "testnet";
 
         // Modify the testnet genesis block so the timestamp is valid for a later start.

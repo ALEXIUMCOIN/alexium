@@ -2747,8 +2747,8 @@ alertnotify=echo %%s | mail -s &quot;Alexium Alert&quot; admin@foo.com
     </message>
     <message>
         <location line="+5"/>
-        <source>Listen for connections on &lt;port&gt; (default: 15714 or testnet: 25714)</source>
-        <translation>监听&lt;port&gt;端口的连接 (默认: 15714 测试网: 25714)</translation>
+        <source>Listen for connections on &lt;port&gt; (default: 45714 or testnet: 55714)</source>
+        <translation>监听&lt;port&gt;端口的连接 (默认: 45714 测试网: 55714)</translation>
     </message>
     <message>
         <location line="+1"/>
@@ -2797,8 +2797,8 @@ alertnotify=echo %%s | mail -s &quot;Alexium Alert&quot; admin@foo.com
     </message>
     <message>
         <location line="+63"/>
-        <source>Listen for JSON-RPC connections on &lt;port&gt; (default: 15715 or testnet: 25715)</source>
-        <translation>监听 &lt;port&gt; 端口的JSON-RPC连接 (默认: 15715 测试网: 25715)</translation>
+        <source>Listen for JSON-RPC connections on &lt;port&gt; (default: 45715 or testnet: 55715)</source>
+        <translation>监听 &lt;port&gt; 端口的JSON-RPC连接 (默认: 45715 测试网: 55715)</translation>
     </message>
     <message>
         <location line="-16"/>
