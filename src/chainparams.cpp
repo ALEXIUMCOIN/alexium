@@ -10,6 +10,8 @@
 #include "util.h"
 
 #include <boost/assign/list_of.hpp>
+#include "arith_uint256.h"
+#include <fstream>
 
 using namespace boost::assign;
 
@@ -55,7 +57,7 @@ public:
         vAlertPubKey = ParseHex("04e4859569daee357967024a5d0374c10c9921ff3eaa26900118c22778a63694e6db5087be0349c1f84bc4dfcdf624f3fd2b04379c331c1a9541b0bc0e02eaf417");
         nDefaultPort = 45714;
         nRPCPort = 45715;
-        bnProofOfWorkLimit = CBigNum(~uint256(0) >> 20);
+        bnProofOfWorkLimit = CBigNum(~uint256(0) >> 16);
 
         // Build the genesis block. Note that the output of the genesis coinbase cannot
         // be spent as it did not originally exist in the database.
@@ -65,29 +67,45 @@ public:
         //    CTxIn(COutPoint(0000000000, 4294967295), coinbase 00012a24323020466562203230313420426974636f696e2041544d7320636f6d6520746f20555341)
         //    CTxOut(empty)
         //  vMerkleTree: 12630d16a9
-        const char* pszTimestamp = "20 Feb 2014 Bitcoin ATMs come to USA";
+        const char* pszTimestamp = "Alexium";
         std::vector<CTxIn> vin;
         vin.resize(1);
         vin[0].scriptSig = CScript() << 0 << CBigNum(42) << vector<unsigned char>((const unsigned char*)pszTimestamp, (const unsigned char*)pszTimestamp + strlen(pszTimestamp));
         std::vector<CTxOut> vout;
         vout.resize(1);
         vout[0].SetEmpty();
-        CTransaction txNew(1, 1393221600, vin, vout, 0);
+        CTransaction txNew(1, 1438812711, vin, vout, 0);
         genesis.vtx.push_back(txNew);
         genesis.hashPrevBlock = 0;
         genesis.hashMerkleRoot = genesis.BuildMerkleTree();
         genesis.nVersion = 1;
-        genesis.nTime    = 1393221600;
+        genesis.nTime    = 1438812711;
         genesis.nBits    = bnProofOfWorkLimit.GetCompact();
-        genesis.nNonce   = 164482;
+        genesis.nNonce   = 23293;
 
+        if (false)
+        {
+            ofstream F;
+            F.open("1.txt");
+            F<<"recalculating params for mainnet.\n";
+            for(genesis.nNonce = 1; UintToArith256(bnProofOfWorkLimit.getuint256()) < UintToArith256(genesis.GetHash()); genesis.nNonce++)
+            {
+                if(genesis.nNonce == 0)
+                    genesis.nTime++;
+            } 
+            F<<"new mainnet genesis merkle root: "<<genesis.hashMerkleRoot.ToString().c_str()<<endl;
+            F<<"new mainnet genesis nonce: "<<genesis.nNonce<<endl;
+            F<<"new mainnet genesis time: "<<genesis.nTime<<endl;
+            F<<"new mainnet genesis hash: "<<genesis.GetHash().ToString().c_str()<<endl;
+            F.close();
+        }
         hashGenesisBlock = genesis.GetHash();
-        assert(hashGenesisBlock == uint256("0x000001faef25dec4fbcf906e6242621df2c183bf232f263d0ba5b101911e4563"));
-        assert(genesis.hashMerkleRoot == uint256("0x12630d16a97f24b287c8c2594dda5fb98c9e6c70fc61d44191931ea2aa08dc90"));
-
+        assert(hashGenesisBlock == uint256("0x00005dbb0c5f9f2e0d34c59365f555cc7cc61842f2ee5d9d9bed4ad0ed6f30ca"));
+        assert(genesis.hashMerkleRoot == uint256("0x96b50ffb60828fc4208491f2e42794468e7343261c5502c6a96cac0add249e27"));
+/*
         vSeeds.push_back(CDNSSeedData("rat4.alexium.co", "seed.alexium.co"));
         vSeeds.push_back(CDNSSeedData("6.syllabear.us.to", "bcseed.syllabear.us.to"));
-
+*/
         base58Prefixes[PUBKEY_ADDRESS] = list_of(23);
         base58Prefixes[SCRIPT_ADDRESS] = list_of(85);
         base58Prefixes[SECRET_KEY] =     list_of(153);
@@ -134,9 +152,26 @@ public:
 
         // Modify the testnet genesis block so the timestamp is valid for a later start.
         genesis.nBits  = bnProofOfWorkLimit.GetCompact();
-        genesis.nNonce = 216178;
+        genesis.nNonce = 23293;
+        if (false)
+        {
+            ofstream F;
+            F.open("2.txt");
+            F<<"recalculating params for testnet.\n";
+            for(genesis.nNonce = 1; UintToArith256(bnProofOfWorkLimit.getuint256()) < UintToArith256(genesis.GetHash()); genesis.nNonce++)
+            {
+                if(genesis.nNonce == 0)
+                    genesis.nTime++;
+            } 
+            F<<"new testnet genesis merkle root: "<<genesis.hashMerkleRoot.ToString().c_str()<<endl;
+            F<<"new testnet genesis nonce: "<<genesis.nNonce<<endl;
+            F<<"new testnet genesis time: "<<genesis.nTime<<endl;
+            F<<"new testnet genesis hash: "<<genesis.GetHash().ToString().c_str()<<endl;
+            F.close();
+        }
+
         hashGenesisBlock = genesis.GetHash();
-        assert(hashGenesisBlock == uint256("0x0000724595fb3b9609d441cbfb9577615c292abf07d996d3edabc48de843642d"));
+        assert(hashGenesisBlock == uint256("0x00005dbb0c5f9f2e0d34c59365f555cc7cc61842f2ee5d9d9bed4ad0ed6f30ca"));
 
         vFixedSeeds.clear();
         vSeeds.clear();
@@ -169,11 +204,28 @@ public:
         bnProofOfWorkLimit = CBigNum(~uint256(0) >> 1);
         genesis.nTime = 1411111111;
         genesis.nBits  = bnProofOfWorkLimit.GetCompact();
-        genesis.nNonce = 2;
+        genesis.nNonce = 1;
         hashGenesisBlock = genesis.GetHash();
         nDefaultPort = 18444;
         strDataDir = "regtest";
-        assert(hashGenesisBlock == uint256("0x523dda6d336047722cbaf1c5dce622298af791bac21b33bf6e2d5048b2a13e3d"));
+        if (false)
+        {
+            ofstream F;
+            F.open("3.txt");
+            F<<"recalculating params for regtestnet.\n";
+            for(genesis.nNonce = 1; UintToArith256(bnProofOfWorkLimit.getuint256()) < UintToArith256(genesis.GetHash()); genesis.nNonce++)
+            {
+                if(genesis.nNonce == 0)
+                    genesis.nTime++;
+            } 
+            F<<"new regtestnet genesis merkle root: "<<genesis.hashMerkleRoot.ToString().c_str()<<endl;
+            F<<"new regtestnet genesis nonce: "<<genesis.nNonce<<endl;
+            F<<"new regtestnet genesis time: "<<genesis.nTime<<endl;
+            F<<"new regtestnet genesis hash: "<<genesis.GetHash().ToString().c_str()<<endl;
+            F.close();
+        }
+
+        assert(hashGenesisBlock == uint256("0x5e743d2525c70e339b827b89533cd4143a2e67095980a31b0937d82007b8e420"));
 
         vSeeds.clear();  // Regtest mode doesn't have any DNS seeds.
     }
