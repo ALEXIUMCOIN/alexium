@@ -982,8 +982,10 @@ int64_t GetProofOfStakeReward(int64_t nCoinAge, int64_t nFees)
     int64_t nSubsidy = nCoinAge * COIN_YEAR_REWARD * 33 / (365 * 33 + 8);
 
     LogPrint("creation", "GetProofOfStakeReward(): create=%s nCoinAge=%d\n", FormatMoney(nSubsidy), nCoinAge);
-
-    return nSubsidy + nFees;
+    if(pindexBest->nMoneySupply < 50000000 * COIN)
+        return nSubsidy + nFees;
+    else
+        return nFees;
 }
 
 static const int64_t nTargetTimespan = 16 * 60;  // 16 mins
