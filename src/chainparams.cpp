@@ -106,6 +106,13 @@ public:
         vSeeds.push_back(CDNSSeedData("rat4.alexium.co", "seed.alexium.co"));
         vSeeds.push_back(CDNSSeedData("6.syllabear.us.to", "bcseed.syllabear.us.to"));
 */
+        vSeeds.push_back(CDNSSeedData("209.126.77.237", "209.126.77.237"));
+        vSeeds.push_back(CDNSSeedData("209.126.76.194", "209.126.76.194"));
+        vSeeds.push_back(CDNSSeedData("209.126.76.193", "209.126.76.193"));
+        vSeeds.push_back(CDNSSeedData("209.126.75.94", "209.126.75.94"));
+        vSeeds.push_back(CDNSSeedData("209.126.74.245", "209.126.74.245"));
+        vSeeds.push_back(CDNSSeedData("209.126.69.78", "209.126.69.78"));
+
         base58Prefixes[PUBKEY_ADDRESS] = list_of(23);
         base58Prefixes[SCRIPT_ADDRESS] = list_of(85);
         base58Prefixes[SECRET_KEY] =     list_of(153);
