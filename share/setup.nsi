@@ -5,9 +5,9 @@ SetCompressor /SOLID lzma
 
 # General Symbol Definitions
 !define REGKEY "SOFTWARE\$(^Name)"
-!define VERSION 1.0.0
+!define VERSION 1.0.1
 !define COMPANY "Alexium project"
-!define URL http://www.invictus.io
+!define URL https://alexium.org
 
 # MUI Symbol Definitions
 !define MUI_ICON "..\share\pixmaps\bitcoin.ico"
@@ -45,13 +45,13 @@ Var StartMenuGroup
 !insertmacro MUI_LANGUAGE English
 
 # Installer attributes
-OutFile ..\release\Alexium-1.0.0-win32-setup.exe
+OutFile ..\release\Alexium-1.0.1-win32-setup.exe
 InstallDir $PROGRAMFILES\Alexium
 CRCCheck on
 XPStyle on
 BrandingText " "
 ShowInstDetails show
-VIProductVersion 1.0.0.0
+VIProductVersion 1.0.1.0
 VIAddVersionKey ProductName Alexium
 VIAddVersionKey ProductVersion "${VERSION}"
 VIAddVersionKey CompanyName "${COMPANY}"
